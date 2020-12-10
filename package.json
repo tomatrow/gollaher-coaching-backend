@@ -1,0 +1,44 @@
+{
+    "name": "insect-expressions-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "rollup -c",
+        "watch": "rollup -c -w",
+        "dev": "netlify dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tomatrow/insect-expressions-backend.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tomatrow/insect-expressions-backend/issues"
+    },
+    "homepage": "https://github.com/tomatrow/insect-expressions-backend#readme",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^16.0.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^10.0.0",
+        "axios": "^0.21.0",
+        "netlify": "^5.0.0",
+        "prettier": "^2.1.2",
+        "rollup": "^2.33.1",
+        "serverless-http": "^2.6.0",
+        "validator": "^13.1.17",
+        "yargs": "^16.1.0"
+    },
+    "dependencies": {
+        "@koa/cors": "^3.1.0",
+        "@koa/router": "^10.0.0",
+        "@mailchimp/mailchimp_marketing": "^3.0.25",
+        "date-fns": "^2.16.1",
+        "koa": "^2.13.0",
+        "koa-bodyparser": "^4.3.0",
+        "mailerlite-api-v2-node": "^1.1.1",
+        "md5": "^2.3.0",
+        "shopify-api-node": "^3.5.2"
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/usr\/local\/bin\/fish\n.\/scripts\/caching-prettier.mjs package.json *.md .\/src\/**\/*.js *.config.js .\/src\/*.js"
+    }
+  },
+  "identifier" : "3D057548-B5A7-473D-A974-812A1C172D4C"
+}

@@ -1,0 +1,8 @@
+# Local Netlify folder
+.netlify
+
+functions/server/app.js
+node_modules
+.env
+.caching-prettier-cache
+log.md
