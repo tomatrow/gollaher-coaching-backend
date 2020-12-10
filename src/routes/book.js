@@ -13,7 +13,6 @@ export async function callback(ctx, next) {
     )
 
     // add this person to the audience with `transactional` status
-    // tag them as a booking
     try {
         const response = await setMember(email, "transactional", {
             NAME: name,

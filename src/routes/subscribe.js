@@ -1,6 +1,6 @@
 import { setMember } from "../controllers/MailChimp.js"
 
-export const path = "/add-subscriber"
+export const path = "/subscribe"
 
 export const method = "post"
 
@@ -10,7 +10,7 @@ export async function callback(ctx, next) {
 
     // add this person to the audience with status of `pending` if new
     try {
-        const response = setMember(email, "pending", {
+        const response = await setMember(email, "pending", {
             ORIGIN: "Subscription",
             PATH: path
         })

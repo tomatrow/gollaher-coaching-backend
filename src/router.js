@@ -4,23 +4,28 @@ import * as Book from "./routes/book.js"
 import * as Ping from "./routes/ping.js"
 import * as Subscribe from "./routes/subscribe.js"
 
-const router = new Router({ prefix: `/.netlify/functions/${process.env.SERVER_PATH}` })
+const root = new Router({ prefix: `/.netlify/functions/${process.env.SERVER_PATH}` })
 
-function add(path, routes, parent = router) {
-    const child = new Router()
-
+// add routes to specified router
+function addRoutes(router, routes) {
     for (let route of routes) {
         // check route is well defined
         for (let key of ["path", "method", "callback"])
             if (route[key] === undefined)
                 throw new Error(`Undefined route: ${route.path} ${route.method} at ${key}`)
         // add it
-        child[route.method](route.path, route.callback)
+        router[route.method](route.path, route.callback)
     }
-
-    parent.use(path, child.routes(), child.allowedMethods())
 }
 
-add("/", [Book, Ping, Subscribe])
+// add routes to a parent router
+function addSubRoutes(path, routes, parent = root) {
+    const child = new Router()
+    addRoutes(child, routes)
+    parent.use(path, child.routes(), child.allowedMethods())
+    return child
+}
 
-export default router
+addRoutes(root, [Book, Ping, Subscribe])
+
+export default root
