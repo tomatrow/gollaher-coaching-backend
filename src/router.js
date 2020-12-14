@@ -3,6 +3,7 @@ import Router from "@koa/router"
 import * as Book from "./routes/book.js"
 import * as Ping from "./routes/ping.js"
 import * as Subscribe from "./routes/subscribe.js"
+import * as Instagram from "./routes/instagram.js"
 
 const root = new Router({ prefix: `/.netlify/functions/${process.env.SERVER_PATH}` })
 
@@ -26,6 +27,6 @@ function addSubRoutes(path, routes, parent = root) {
     return child
 }
 
-addRoutes(root, [Book, Ping, Subscribe])
+addRoutes(root, [Book, Ping, Subscribe, Instagram])
 
 export default root
