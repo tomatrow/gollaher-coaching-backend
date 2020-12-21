@@ -20,10 +20,11 @@ export async function callback(ctx, next) {
             ORIGIN: "Booking",
             PATH: path
         })
-        console.log(response)
         ctx.status = 200
+        console.log("/book success", email, name, phone, path)
     } catch (error) {
         ctx.status = 500
+        console.error("/book error", error, email, name, phone, path)
     }
 
     await next()
